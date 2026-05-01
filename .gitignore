@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.vercel/
+out/
+compressed/
+instagram/
+.env
+.DS_Store

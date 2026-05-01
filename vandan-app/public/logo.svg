@@ -1,0 +1,64 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="256" fill="url(#bg)"/>
+
+  <!-- Diya bowl -->
+  <ellipse cx="256" cy="330" rx="120" ry="32" fill="url(#bowlTop)"/>
+  <path d="M136 330c0 0 16 90 120 90s120-90 120-90" fill="url(#bowlBody)" stroke="url(#bowlRim)" stroke-width="3"/>
+  <ellipse cx="256" cy="420" rx="68" ry="18" fill="#8B6914" opacity="0.6"/>
+
+  <!-- Wick -->
+  <rect x="250" y="270" width="12" height="40" rx="6" fill="#DAA520" opacity="0.7"/>
+
+  <!-- Flame outer -->
+  <path d="M256 80c-16 50-56 90-56 160a56 56 0 00112 0c0-70-40-110-56-160z" fill="url(#flameOuter)"/>
+
+  <!-- Flame middle -->
+  <path d="M256 120c-10 35-36 60-36 110a36 36 0 0072 0c0-50-26-75-36-110z" fill="url(#flameMid)"/>
+
+  <!-- Flame core (brightest) -->
+  <path d="M256 160c-5 22-18 38-18 65a18 18 0 0036 0c0-27-13-43-18-65z" fill="#FFFEF2" opacity="0.9"/>
+
+  <!-- Flame glow -->
+  <circle cx="256" cy="180" r="70" fill="url(#glow)" opacity="0.3"/>
+
+  <!-- Text: वंदन -->
+  <text x="256" y="478" text-anchor="middle" font-family="serif" font-weight="700" font-size="52" fill="#FFF8EE" opacity="0.95">वंदन</text>
+
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#C8611A"/>
+      <stop offset="60%" stop-color="#8B3500"/>
+      <stop offset="100%" stop-color="#4A1000"/>
+    </radialGradient>
+    <linearGradient id="flameOuter" x1="256" y1="80" x2="256" y2="280" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFEF2"/>
+      <stop offset="30%" stop-color="#FFE84A"/>
+      <stop offset="70%" stop-color="#FF9500"/>
+      <stop offset="100%" stop-color="#FF4500" stop-opacity="0.8"/>
+    </linearGradient>
+    <linearGradient id="flameMid" x1="256" y1="120" x2="256" y2="250" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFEF5"/>
+      <stop offset="50%" stop-color="#FFE84A"/>
+      <stop offset="100%" stop-color="#FFB830"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFE84A" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#FF9500" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bowlTop" x1="136" y1="330" x2="376" y2="330">
+      <stop offset="0%" stop-color="#CD853F"/>
+      <stop offset="50%" stop-color="#EDD08A"/>
+      <stop offset="100%" stop-color="#CD853F"/>
+    </linearGradient>
+    <linearGradient id="bowlBody" x1="256" y1="330" x2="256" y2="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#EDD08A"/>
+      <stop offset="100%" stop-color="#8B6914"/>
+    </linearGradient>
+    <linearGradient id="bowlRim" x1="136" y1="330" x2="376" y2="330">
+      <stop offset="0%" stop-color="rgba(255,215,60,0.4)"/>
+      <stop offset="50%" stop-color="rgba(255,215,60,0.8)"/>
+      <stop offset="100%" stop-color="rgba(255,215,60,0.4)"/>
+    </linearGradient>
+  </defs>
+</svg>
