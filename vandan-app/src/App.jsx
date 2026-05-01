@@ -20,7 +20,7 @@ import LanguageSheet from './components/LanguageSheet';
 
 function App() {
   const [user, setUser] = useState({ name: '', phone: '', cc: '+91', photo: '' });
-  const [showSignup, setShowSignup] = useState(true);
+  const [showSignup, setShowSignup] = useState(false);
   // showPhotoStep removed
   const [lang, setLangState] = useState(() => {
     try { return localStorage.getItem('vandan_lang') || 'hi'; } catch { return 'hi'; }
@@ -159,7 +159,7 @@ function App() {
 
       <TopBar userName={user.name} userPhoto={user.photo} onProfileClick={() => setLangSheetOpen(true)} />
       <CategoryTabs categories={categories} activeCategory={category} onSelect={setCategory} />
-      <StoriesRow stories={stories} onStoryClick={handleStoryClick} userName={user.name} />
+      <StoriesRow stories={stories} onStoryClick={handleStoryClick} userName={user.name} userPhone={user.phone} onNeedSignup={() => setNameSheetOpen(true)} />
 
       {/* Invite banner between stories and feed */}
       <div className="invite-banner-wrap">

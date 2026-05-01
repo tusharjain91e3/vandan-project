@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { fetchStories, uploadStory } from '../lib/stories';
 import UserStoryViewer from './UserStoryViewer';
 
-export default function StoriesRow({ stories: dummyStories, onStoryClick, userName }) {
+export default function StoriesRow({ stories: dummyStories, onStoryClick, userName, userPhone, onNeedSignup }) {
   const [userStories, setUserStories] = useState([]);
   const [uploading, setUploading] = useState(false);
   const [viewerOpen, setViewerOpen] = useState(false);
@@ -45,7 +45,7 @@ export default function StoriesRow({ stories: dummyStories, onStoryClick, userNa
     <>
       <div className="stories">
         {/* Add Story */}
-        <div className="story" onClick={() => userName ? fileRef.current?.click() : alert('पहले नाम डालें')} style={{ cursor: 'pointer' }}>
+        <div className="story" onClick={() => (userName && userPhone) ? fileRef.current?.click() : onNeedSignup?.()} style={{ cursor: 'pointer' }}>
           <div style={{
             width: 64, height: 64, borderRadius: '50%', flexShrink: 0,
             background: uploading ? 'rgba(200,97,26,.15)' : 'rgba(43,24,16,.04)',
