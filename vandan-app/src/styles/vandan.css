@@ -589,14 +589,13 @@ body {
 
 /* ---------- 5. Topbar ---------- */
 .topbar {
-  height: 80px;
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 0 16px;
   background: var(--paper);
-  border-bottom: 1px solid rgba(43,24,16,.07);
-  box-shadow: 0 1px 0 rgba(43,24,16,.06), 0 2px 8px rgba(43,24,16,.05);
+  border-bottom: 1px solid rgba(43,24,16,.06);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -665,20 +664,19 @@ body {
 
 /* ---------- 6. Category Tabs ---------- */
 .cat-tabs {
-  height: 48px;
+  height: 40px;
   display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 0 16px;
+  align-items: stretch;
+  gap: 0;
+  padding: 0;
   overflow-x: auto;
   overflow-y: hidden;
   background: var(--paper);
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   border-bottom: 1px solid rgba(43,24,16,.08);
-  box-shadow: 0 1px 0 rgba(43,24,16,.05), 0 2px 6px rgba(43,24,16,.04);
   position: sticky;
-  top: 80px;
+  top: 56px;
   z-index: 99;
   flex-shrink: 0;
 }
@@ -689,44 +687,43 @@ body {
 
 .cat-tab {
   flex-shrink: 0;
-  min-height: 44px;
-  padding: 0 12px;
-  border-radius: 22px;
+  min-height: 40px;
+  padding: 0 14px;
+  border-radius: 0;
   font-family: var(--deva);
   font-size: 13px;
   font-weight: 500;
-  color: #6B5B4E;
-  letter-spacing: .1px;
+  color: var(--stone);
   background: transparent;
   white-space: nowrap;
-  transition: all 0.2s;
+  transition: color .2s;
   display: flex;
   align-items: center;
+  border-bottom: 2px solid transparent;
 }
 
 .cat-tab--active {
-  background: linear-gradient(135deg, #C8611A 0%, #8B3500 100%);
-  color: #fff;
+  color: var(--rosewood);
   font-weight: 700;
-  box-shadow: 0 2px 10px rgba(200,97,26,.32), 0 1px 3px rgba(200,97,26,.20);
+  border-bottom-color: var(--saffron);
+  background: transparent;
 }
 
 /* ---------- 7. Stories Row ---------- */
 .stories {
-  height: 110px;
+  height: 92px;
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 8px 18px;
+  gap: 12px;
+  padding: 6px 12px;
   overflow-x: auto;
   overflow-y: hidden;
   background: var(--paper);
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  border-bottom: 1px solid rgba(43,24,16,.08);
-  box-shadow: 0 2px 8px rgba(43,24,16,.05);
+  border-bottom: 1px solid rgba(43,24,16,.06);
   position: sticky;
-  top: 128px; /* 80px topbar + 48px tabs — stories is below */
+  top: 96px;
   z-index: 98;
   flex-shrink: 0;
 }
@@ -741,20 +738,19 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 0;
-  width: 70px;
+  width: 66px;
   cursor: pointer;
 }
 
 .story:active { opacity: .7; }
 
 .story__ring {
-  width: 64px;
-  height: 64px;
+  width: 58px;
+  height: 58px;
   border-radius: 50%;
-  padding: 2.5px;
+  padding: 2px;
   flex-shrink: 0;
   background: linear-gradient(145deg, #FF8C35 0%, #C8611A 45%, #6B2000 100%);
-  box-shadow: 0 3px 10px rgba(200,97,26,.35);
   cursor: pointer;
 }
 
@@ -1047,11 +1043,8 @@ body {
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
   contain: layout style;
-  padding: 14px 0 24px;
-  background: #EDE3D0;
-  background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)' opacity='.055'/%3E%3C/svg%3E"),
-    linear-gradient(160deg, #F0E4CC 0%, #EDE3D0 50%, #E8D8C0 100%);
+  padding: 4px 0 24px;
+  background: var(--paper);
 }
 
 .feed::-webkit-scrollbar { display: none; }
@@ -1061,14 +1054,9 @@ body {
   width: 100%;
   aspect-ratio: 4 / 5;
   position: relative;
-  border-radius: var(--card-r);
+  border-radius: 0;
   overflow: visible;
   background: #2B1810;
-  box-shadow:
-    0 1px 3px rgba(43,24,16,.12),
-    0 6px 20px rgba(43,24,16,.20),
-    0 20px 56px rgba(43,24,16,.14),
-    0 40px 80px rgba(43,24,16,.07);
   transform: translateZ(0);
   isolation: isolate;
 }
@@ -1760,27 +1748,23 @@ body {
 /* ---------- 18. Invite Banner ---------- */
 .invite-banner-wrap {
   position: sticky;
-  top: 224px; /* 80 topbar + 48 tabs + 96 stories */
+  top: 188px;
   z-index: 97;
   flex-shrink: 0;
   background: var(--paper);
-  padding: 16px 0;
+  padding: 8px 0;
   border-bottom: 1px solid rgba(43,24,16,.06);
 }
 
 .invite-banner {
-  margin: 0 12px;
-  background: linear-gradient(135deg, #FDF0DC 0%, #FAE8CC 100%);
-  border: 1.5px solid rgba(200,97,26,.32);
-  border-radius: 16px;
-  padding: 12px 14px;
+  margin: 0 8px;
+  background: rgba(43,24,16,.03);
+  border: 1px solid rgba(43,24,16,.08);
+  border-radius: 10px;
+  padding: 10px 12px;
   cursor: pointer;
   overflow: hidden;
   position: relative;
-  box-shadow:
-    0 1px 0 rgba(255,255,255,.6) inset,
-    0 2px 12px rgba(200,97,26,.12),
-    0 4px 20px rgba(43,24,16,.07);
   flex-shrink: 0;
 }
 
@@ -2106,6 +2090,44 @@ select:focus-visible {
   outline-offset: 2px;
 }
 
+/* ── Sticky Bottom CTA — converts visitors to leads ── */
+.bottom-cta {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 500;
+  background: var(--rosewood);
+  padding: 14px 16px;
+  padding-bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  animation: slideUpCTA .4s cubic-bezier(.32,.72,0,1);
+  box-shadow: 0 -4px 20px rgba(0,0,0,.15);
+}
+@keyframes slideUpCTA { from { transform: translateY(100%); } to { transform: translateY(0); } }
+
+@media (min-width: 481px) {
+  .bottom-cta { left: 50%; right: auto; width: 100%; max-width: 480px; transform: translateX(-50%); }
+}
+
+.bottom-cta__text {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--deva); font-size: 15px; font-weight: 600;
+  color: rgba(255,240,210,.9);
+}
+.bottom-cta__emoji { font-size: 20px; }
+
+.bottom-cta__btn {
+  flex-shrink: 0;
+  background: var(--saffron);
+  color: #fff;
+  font-family: var(--deva); font-size: 14px; font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
 /* Global loader spinner */
 @keyframes loader-spin { to { transform: rotate(360deg); } }
 
@@ -2153,8 +2175,8 @@ select:focus-visible {
    21. Original class names — exact match
    ============================================ */
 
-/* Card unit wrapper */
-.cu { margin: 0 8px 20px; }
+/* Card unit wrapper — edge-to-edge */
+.cu { margin: 0 0 2px; }
 
 /* Card active press */
 .card:active { transform: scale(.975) translateZ(0); transition: transform .1s ease-out; }

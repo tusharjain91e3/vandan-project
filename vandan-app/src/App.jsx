@@ -21,6 +21,7 @@ import LanguageSheet from './components/LanguageSheet';
 function App() {
   const [user, setUser] = useState({ name: '', phone: '', cc: '+91', photo: '' });
   const [showSignup, setShowSignup] = useState(false);
+  const [showBottomCTA, setShowBottomCTA] = useState(false);
   // showPhotoStep removed
   const [lang, setLangState] = useState(() => {
     try { return localStorage.getItem('vandan_lang') || 'hi'; } catch { return 'hi'; }
@@ -50,6 +51,13 @@ function App() {
       }
     } catch (e) { /* ignore */ }
   }, []);
+
+  // Show bottom CTA after 4 seconds if user hasn't signed up
+  useEffect(() => {
+    if (user.name && user.phone) return;
+    const timer = setTimeout(() => setShowBottomCTA(true), 4000);
+    return () => clearTimeout(timer);
+  }, [user.name, user.phone]);
 
   const handleSignup = useCallback(async (name, phone, countryCode) => {
     setUser({ name, phone, cc: countryCode, photo: '' });
@@ -182,6 +190,17 @@ function App() {
       <StoryModal stories={stories} currentIndex={storyIndex} isOpen={storyModalOpen} onClose={() => setStoryModalOpen(false)} onNext={handleStoryNext} onPrev={handleStoryPrev} onShare={handleShare} lang={lang} userName={user.name} userPhoto={user.photo} />
       <NamePhotoSheet isOpen={nameSheetOpen} onClose={() => setNameSheetOpen(false)} onSave={handleNameSave} currentName={user.name} currentPhoto={user.photo} currentPhone={user.phone} currentCC={user.cc} lang={lang} />
       <LanguageSheet isOpen={langSheetOpen} onClose={() => setLangSheetOpen(false)} currentLang={lang} onSelect={(l) => { setLang(l); setLangSheetOpen(false); }} />
+
+      {/* Sticky bottom CTA — appears after 4s if not signed up */}
+      {showBottomCTA && !user.phone && (
+        <div className="bottom-cta" onClick={() => { setNameSheetOpen(true); setShowBottomCTA(false); }}>
+          <div className="bottom-cta__text">
+            <span className="bottom-cta__emoji">🪔</span>
+            <span>अपना नाम डालो — कार्ड भेजो!</span>
+          </div>
+          <div className="bottom-cta__btn">शुरू करें →</div>
+        </div>
+      )}
       <ConfirmModal isOpen={confirmOpen} onClose={() => setConfirmOpen(false)} onWhatsAppShare={handleWhatsAppShare} userName={user.name} userPhone={user.cc + user.phone} />
 
     </div>
